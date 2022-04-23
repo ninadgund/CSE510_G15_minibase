@@ -192,8 +192,7 @@ public class Scan implements GlobalConst{
 	     IOException
   {
 	_hf = hf;
-
-    	firstDataPage();
+    firstDataPage();
   }
 
 

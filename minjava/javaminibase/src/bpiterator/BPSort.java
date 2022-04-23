@@ -1,6 +1,6 @@
 package bpiterator;
 
-import java.io.*; 
+import java.io.*;
 import global.*;
 import heap.*;
 import basicpattern.*;
@@ -15,6 +15,7 @@ import iterator.*;
  */
 public class BPSort extends BPIterator implements GlobalConst
 {
+<<<<<<< HEAD
   private static final int ARBIT_RUNS = 10;
   
   private AttrType[]  _in;         
@@ -162,11 +163,12 @@ public class BPSort extends BPIterator implements GlobalConst
 	
 	    if (useBM) 
 	    {
-			try 
+			try
 			{
-			get_buffer_pages(_n_pages, bufs_pids, bufs);
+				get_buffer_pages(_n_pages, bufs_pids, bufs);
 			}
 			catch (Exception e) {
+<<<<<<< HEAD
 			throw new SortException(e, "Sort.java: BUFmgr error");
 			}
 	    }
@@ -452,7 +454,7 @@ public class BPSort extends BPIterator implements GlobalConst
 	  p_elems_curr_Q ++;
 	}
       }
-      
+
       // Check if we are done
       if (p_elems_curr_Q == 0) {
 	// current queue empty despite our attemps to fill in
@@ -711,10 +713,11 @@ public class BPSort extends BPIterator implements GlobalConst
       
       AttrType sortFldTyp;
 			if(_sort_fld<0)
-      {
-        sortFldTyp = new AttrType(AttrType.attrFloat);
-      }
+			{
+				sortFldTyp = new AttrType(AttrType.attrFloat);
+			}
 			else
+<<<<<<< HEAD
       {
         sortFldTyp = new AttrType(AttrType.attrInteger);
       }
@@ -722,37 +725,37 @@ public class BPSort extends BPIterator implements GlobalConst
       // generate runs
       Nruns = generate_runs(max_elems_in_heap, sortFldTyp);
       //      System.out.println("Generated " + Nruns + " runs");
-      
-      // setup state to perform merge of runs. 
+
+      // setup state to perform merge of runs.
       // Open input buffers for all the input file
       setup_for_merge(bp_size, Nruns);
     }
-    
-    if (Q.empty()) {  
+
+    if (Q.empty()) {
       // no more tuples availble
       return null;
     }
-    
+
     output_bp = delete_min();
     if (output_bp != null){
       op_buf.basicPatternCopy(output_bp);
-      return op_buf; 
+      return op_buf;
     }
-    else 
-      return null; 
+    else
+      return null;
   }
 
   /**
    * Cleaning up, including releasing buffer pages from the buffer pool
    * and removing temporary files from the database.
    * @exception IOException from lower layers
-   * @exception SortException something went wrong in the lower layer. 
+   * @exception SortException something went wrong in the lower layer.
    */
   public void close() throws SortException, IOException
   {
     // clean up
     if (!closeFlag) {
-       
+
       try {
 	_am.close();
       }
@@ -795,8 +798,8 @@ public class BPSort extends BPIterator implements GlobalConst
 	}
       }
       closeFlag = true;
-    } 
-  } 
+    }
+  }
 
 }
 
